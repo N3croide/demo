@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- <div class="photo" each="photo:${photos}">
+        <img th:src="${photo.img}" alt="Photo">
+        <p th:text="${photo.cameraName}"></p>
+        <p th:text="${photo.date}"></p>
+    </div> -->
+    @for(photo of photos ; track photo.id){
+    <div class="photo">
+        <img src={{photo.img_src}} alt="photoxd">
+        <p>{{photo.cameraName}}</p>
+        <p>{{photo.date}}</p>
+    </div>
+    }
+</div>
