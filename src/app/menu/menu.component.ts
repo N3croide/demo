@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import type { Photo } from "./menu.component.d";
 import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../http.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-menu',
 	standalone: true,
 	imports: [
+		FormsModule
 	],
 	templateUrl: './menu.component.html',
 	styleUrl: './menu.component.css',
@@ -15,15 +17,12 @@ import { HttpService } from '../http.service';
 export class MenuComponent {
 
 	constructor (private httpService: HttpService) { }
-
+	
+	selectedDate: string = '';
 	photos: Photo[] = [];
 
-	ngOnInit(): void {
-		this.loadPhoto();
-	}
-
-	loadPhoto(): void {
-		this.httpService.getPhotos().subscribe({
+	searchByDate(): void {
+		this.httpService.getPhotos(this.selectedDate).subscribe({
 			next: (data: any) => {
 				this.photos = data;
 			},
@@ -36,5 +35,6 @@ export class MenuComponent {
 		}
 		)
 	}
+
 
 }

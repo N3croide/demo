@@ -8,11 +8,12 @@ import { Photo } from './menu/menu.component.d';
 })
 export class HttpService {
 
-	private URL: string = "http://localhost:8080/get/2020-07-20";
+	private URL: string = "http://localhost:8080/get/";
 
 	constructor (private http: HttpClient) { }
 
-	getPhotos(): Observable<Photo[]> {
-		return this.http.get<Photo[]>(this.URL);
+	getPhotos(date: string): Observable<Photo[]> {
+		console.log(date);
+		return this.http.get<Photo[]>(this.URL.concat(date));
 	}
 }

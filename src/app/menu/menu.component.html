@@ -1,9 +1,9 @@
+
+<label for="date">Ingrese la fecha:</label>
+<input name="date" id="date" type="date" [(ngModel)] = "selectedDate">
+<button id="search" type="submit" (click)="searchByDate()">Buscar</button>
+
 <div class="container">
-    <!-- <div class="photo" each="photo:${photos}">
-        <img th:src="${photo.img}" alt="Photo">
-        <p th:text="${photo.cameraName}"></p>
-        <p th:text="${photo.date}"></p>
-    </div> -->
     @for(photo of photos ; track photo.id){
     <div class="photo">
         <img src={{photo.img_src}} alt="photoxd">
